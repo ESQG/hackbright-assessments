@@ -90,11 +90,6 @@ def is_my_hometown(town):
 
     return town == 'princeton'
 
-
-
-
-
-
 #    (b) Write a function that takes a first and last name as arguments and
 #        returns the concatenation of the two names in one string.
 
@@ -151,7 +146,7 @@ def compare_origins(hometown, first_name, last_name):
 def is_berry(fruit):
     """Determines if fruit is a berry"""
 
-    return fruit in {'strawberry', 'cherry', 'blackberry'}
+    return fruit.strip().lower() in {'strawberry', 'cherry', 'blackberry'}
 
 
 # (b) Write another function, shipping_cost(), which calculates shipping cost
@@ -166,7 +161,6 @@ def shipping_cost(fruit):
         return 0
     else:       # I know I don't need the else, but it seems better!
         return 5
-
 
 
 # 2. Make a function that takes in a number and a list of numbers. It should
@@ -198,6 +192,8 @@ def append_to_list(lst, num):
 #    fees.
 
 def calculate_price(cost, us_state, tax_percentage = 0.05):
+    '''Calculate the total cost after taxes and fees applied by state.
+    State must be given in two-letter capital abbreviation format.'''
 
     assert tax_percentage < 1 # Sales tax should be entered as a decimal, e.g. 5% specified as 0.05.
     assert cost > 0  # First argument should be a cost greater than $0
