@@ -4,7 +4,22 @@ Part 1: Discussion
 1. What are the three main design advantages that object orientation
    can provide? Explain each concept.
 
-   ARRGH FINISH LATER
+   Abstraction: By having objects whose expected behaviors are baked into their class type, we can call upon their attributes
+and functions anytime without having to know how they work.  This is the same benefit that having a high-level programming 
+language gives in the first place: the details are already dealt with in (hopefully) an optimal or close-to-optimal way, 
+so we can write code that's simpler in appearance and thus easier to maintain.
+
+    Encapsulation: Providing parallel structure across all instances of a class, without a need to remember to maintain that 
+parallel structure.  In theory, dictionaries of attributes and specialized functions could hold all the same information that 
+classes do, and we could just do functional programming instead of object-oriented programming.  But having the built-in machinery 
+means that we don't need to remember to import each function from a module, or set each attribute as a key-value pair in a 
+dictionary; we simply import the class, then we get the instances' attributes and methods along with that.  It also makes
+resetting those methods, or attributes, paradoxically easier than it would be with more-flexible dictionaries: much of the information
+is stored with the class, i.e., it's centralized.
+
+    Polymorphism: Being able to change the way a particular instance works, or create specialized subclasses, while still taking
+advantage of the original structures (attributes, methods) of the class.  I don't have much more to say about this: it's useful
+to have templates and still be able to change them.
 
 
 2. What is a class?
@@ -81,6 +96,24 @@ on the class type(a). (And then keep checking ancestor classes until it succeeds
 # Part 2
 
 class Student(object):
+    """Must be initialized with a first name.  If a last name is not provided, the default is Unknown; same with address.
+
+    For example:
+    >>> Student("Muffin", "Man", "1 Cherry Lane")
+    <Student Muffin Man>
+
+    >>> Student("Thumbelina")
+    <Student Thumbelina Unknown>
+
+    >>> grandma = Student("Grandmother", address = "Over the river and through the woods")
+    >>> grandma
+    <Student Grandmother Unknown>
+    >>> grandma.address
+    'Over the river and through the woods'
+    >>> print grandma
+    Grandmother Unknown
+    Over the river and through the woods
+    """
 
     def __init__(self, first_name, last_name='Unknown', address='Address Unknown'):  # Must specify first name; last name and address are optional
         self.first_name = first_name
@@ -88,7 +121,10 @@ class Student(object):
         self.address = address
 
     def __repr__(self):
-        return "<Student %s %s>" % (first_name, last_name)
+        return "<Student %s %s>" % (self.first_name, self.last_name)
+
+    def __str__(self):
+        return """%s %s\n%s""" % (self.first_name, self.last_name, self.address)
 
 class Question(object):
     """Stores a question and answer, with a default answer of "Unknown".  
@@ -104,9 +140,9 @@ class Question(object):
     The ask_and_evaluate method returns True if the answer is correct, False otherwise.  See its docstring.
     """
 
-    def __init__(self, question, answer='Unknown'): # Answer is optional
+    def __init__(self, question, answer='Unknown'):  # Answer is optional
         self.question = question
-        self.correct_answer = answer.rstrip(".!") # Strips punctuation off of answer
+        self.correct_answer = answer.strip().rstrip(".!")  # Strips punctuation off of answer
 
     def __repr__(self):
         return "<Question: %s>" % self.question
