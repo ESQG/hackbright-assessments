@@ -82,20 +82,34 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
+    # which_list = {}
+
+    # for item in items1:
+    #     which_list[item] = 1
+
+    # for item in items2:
+    #     if item in which_list and which_list[item] == 1:
+    #         which_list[item] = 3
+    #     elif item in which_list:
+    #         pass
+    #     else:
+    #         which_list[item] = 2
+
+    # return [item for item in which_list if which_list[item] == 3]
+
     which_list = {}
 
     for item in items1:
-        which_list[item] = 1
+        which_list[item] = '1 only'
 
     for item in items2:
-        if item in which_list and which_list[item] == 1:
-            which_list[item] = 3
-        elif item in which_list:
-            pass
-        else:
-            which_list[item] = 2
+        which_list[item] = which_list.get(item, '2 only')
+        if which_list[item] == '1 only':     # If already set to 1 and 2, or 2 only, will not be changed
+            which_list[item] = '1 and 2'
 
-    return [item for item in which_list if which_list[item] == 3]
+    return [item for item in which_list if which_list[item] == '1 and 2']
+
+
 
 
 def get_sum_zero_pairs(numbers):
@@ -129,18 +143,13 @@ def get_sum_zero_pairs(numbers):
 
     for num in numbers:
         if -num in has_negatives or num == 0:
-            has_negatives[num] = True
-            has_negatives[-num] = True
+            has_negatives[num] = None
+            has_negatives[-num] = [num, -num]   # Resets for 0; otherwise allows only one of the two numbers to 
+            #hold the pair.  This way each pair appears only once in the values of our has_negatives dictionary.
         else:
-            has_negatives[num] = False
+            has_negatives[num] = None
 
-    for num in has_negatives:
-        if has_negatives[num] == True:
-            pair = sorted([num, -num])
-            if pair not in ret:
-                ret.append(pair)
-    return ret
-    # REFACTOR THIS!!!
+    return [has_negatives[num] for num in has_negatives if has_negatives[num] is not None]
 
 
 def top_chars(phrase):
