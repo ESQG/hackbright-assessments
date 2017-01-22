@@ -2,7 +2,8 @@
 
 #instructions {
     border: 1px dashed black;
-    padding: 10px;
+    padding: 5px;
+    margin: 5px;
 }
 
 input, textarea {
@@ -11,4 +12,21 @@ input, textarea {
 
 label[for=last-name] {
     font-weight: bold;
+}
+
+form {
+    line-height: 1.5em;
+}
+
+body {
+    background-color: #A0FFC0;
+}
+
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.center {
+    text-align: center;
 }
