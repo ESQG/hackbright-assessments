@@ -7,7 +7,7 @@
 }
 
 input, textarea {
-    background-color: yellow;
+    background-color: #FFFF60;
 }
 
 label[for=last-name] {
