@@ -15,7 +15,7 @@
     <div id="instructions">
       <p> Please fill out your first name, last name, the minimum annual salary you need, and select the job title you are applying for.</p>
 
-      <p> The minimum salary field is optional, and should be entered in dollar amounts rounded to the nearest thousand: 65,000 for example.  <strong>The first name and last name fields are required.</strong></p>
+      <p> The minimum salary field is optional, but should be entered in whole dollar amounts.  <strong>The first name and last name fields are required.</strong></p>
     </div>
      <br />
     <form action="/application/success" method="POST">
@@ -23,7 +23,7 @@
         <br/>
       <label for="last-name">Last name: </label><input id="last-name" type="text" name="last-name" required>
         <br/>
-      <label for="salary">Minimum salary required: $</label><input id="salary" type="number" min="1000" step="1000" name="min-salary">
+      <label for="salary">Minimum salary required: $</label><input id="salary" type="number" min="0" name="min-salary">
         <br />
       <label for="job-title">Which job are you applying for?</label>
         <select id="job-title" name="job-title">
