@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Reputable Company</title>
+
+{% endblock %}
+
+{% block body%}
+
+{% if job_titles %}
+<p> We are currently welcoming applications from prospective
+    {% if job_titles | length > 1 %}
+    {% for job in job_titles[:-1]%}
+    {{job}}s,
+    {% endfor %}
+    and {% endif %}
+    {{job_titles[-1]}}s.</p>
+    <p class="center"><a href="/application">Apply</a></p>
+
+{% else %}
+Unfortunately, we are not hiring right now.  Please check back soon!
+{% endif %}
+
+{% endblock %}

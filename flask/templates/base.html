@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="/static/styles.css">
+
+    {% block head %}
+    Base head, shouldn't show up
+    {% endblock %}
+
+  </head>
+  <body>
+
+      <h1>Reputable Company</h1>
+      <h3>Offering fair compensation for your labor, as long as it helps us make a profit</h3>
+
+    <div id="content">
+    {% block body %}
+    Base body
+    {% endblock %}
+    </div>
+
+    <p class="center"><a href="/">Home</a><p>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Reputable Company</title>
+
+{% endblock %}
+
+{% block body %}
+    <!-- your html goes here -->
+
+    <h2>Job Application</h2>
+
+    <p class="center">Welcome to our simple application form!  We look forward to hearing from you!</p>
+
+    <div id="instructions">
+      <p> Please fill out your first name, last name, the minimum annual salary you need, and select the job title you are applying for.</p>
+
+      <p> The minimum salary field is optional, but should be in whole dollar amounts.  <strong>The first name and last name fields are required.</strong></p>
+    </div>
+     <br />
+    <div id="form-block">
+    <form action="/application/success" method="POST">
+      <label for="first-name">First name: </label><input id="first-name" type="text" name="first-name" required>
+        <br/>
+      <label for="last-name">Last name: </label><input id="last-name" type="text" name="last-name" required>
+        <br/>
+      <label for="salary">Minimum salary required: $</label><input id="salary" type="number" min="0" name="min-salary">
+        <br />
+      <label for="job-title">Which job are you applying for?</label>
+        <select id="job-title" name="job-title">
+          {% for key in jobs %}
+          <option value={{key}}>{{jobs[key]}}</option>
+          {% endfor %}
+        </select>
+          <br />
+      <input type="submit" value="Submit Application">
+    </form>
+  </div>
+
+  {% endblock %}
