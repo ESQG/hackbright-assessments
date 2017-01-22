@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>Application Form</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+  <body>
+    <!-- your html goes here -->
+
+    <h1>Application Form</h1>
+
+    <p>Welcome to our simple application form!  Please fill out your first name, last name, the minimum annual salary you need, and select the job title you are applying for.  We look forward to hearing from you!</p>
+
+    <p id="instructions"> The minimum salary field is optional, and should be entered in dollar amounts rounded to the nearest thousand: 65,000 for example.  <strong>The first name and last name fields are required.</strong></p>
+
+    <form action="/application/success" method="POST">
+      <label for="first-name">First name: </label><input id="first-name" type="text" name="first-name" required>
+        <br/>
+      <label for="last-name">Last name: </label><input id="last-name" type="text" name="last-name" required>
+        <br/>
+      <label for="salary">Minimum salary required: $</label><input id="salary" type="number" min="1000" step="1000" name="min-salary">
+        <br />
+      <label for="job-title">Which job are you applying for?</label>
+        <select id="job-title" name="job-title">
+          <option value="software-engineer">Software Engineer</option>
+          <option value="qa-engineer">QA engineer</option>
+          <option value="product-manager">Product Manager</option>
+        </select>
+          <br/>
+
+      <input type="submit" value="Submit Application">
+    </form>
+  </body>
+</html>
