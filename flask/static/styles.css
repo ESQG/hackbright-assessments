@@ -1,0 +1,67 @@
+/* Your CSS goes here */
+
+#instructions {
+    border: 2px dashed #FFFF90;
+    padding: 5px;
+    margin: 5px;
+}
+
+p {
+    text-align: left;
+}
+
+input, textarea {
+    background-color: #FFFF70;
+}
+
+label[for=last-name] {
+    font-weight: bold;
+}
+
+form {
+    line-height: 1.5em;
+    text-align: right;
+}
+
+body {
+    background-color: #307020;
+    color: #C08040;
+    font-family: arial, serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+    font-size: 200%;
+}
+h3 {
+    text-align: center;
+    font-size:120%;
+    font-family: cursive;
+}
+
+.center {
+    text-align: center;
+}
+
+#form-block {
+   display: inline-block;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#content {
+    background-color: #B0FFC0;
+    margin: 5%;
+    padding: 2em;
+    text-align: center;
+    color: #604000;
+
+}
+
+a {
+    color: #FFB030;
+}
