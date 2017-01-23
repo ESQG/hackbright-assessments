@@ -8,3 +8,5 @@ Salary in $1000, or not, how to handle
 $ written in salary field, then what do we get
 
 Page display if no jobs.  Also if just one job.
+
+

@@ -30,7 +30,7 @@
       <label for="job-title">Which job are you applying for?</label>
         <select id="job-title" name="job-title">
           {% for key in jobs %}
-          <option value={{key}}>{{jobs[key]}}</option>
+          <option value="{{key}}">{{jobs[key]}}</option>
           {% endfor %}
         </select>
           <br />
